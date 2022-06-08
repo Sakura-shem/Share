@@ -28,17 +28,19 @@ def get_info(i):
         temp.append(res[j]["contactTime"])
         # 总花销
         temp.append(res[j]["costCount"])
-        # 领域内程度等级
-        temp.append(res[j]["levelVal"])
         # 领域内程度描述
         temp.append(res[j]["level"])
+        # 领域内程度等级
+        temp.append(res[j]["levelVal"])
         # 每日时长
         temp.append(res[j]["timeOfDay"])
         # 金钱投入门槛
         temp.append(res[j]["putIntoCostLevel"])
         # 时间投入门槛
         temp.append(res[j]["putIntoTimeLevel"])
-        # 社会认知程度
+        # 社会认知程度描述
+        temp.append(res[j]["cognitionCill"])
+        # 社会认知程度等级
         temp.append(res[j]["cognitionCillVal"])
     info.put(temp)
     return 0
@@ -76,10 +78,10 @@ if __name__ == "__main__":
             data = []
             while not info.empty():
                 data.append(info.get())
-            with open("test.csv", "w", newline='', encoding = "utf-8") as csvfile: 
+            with open("hobby.csv", "w", newline='', encoding = "utf-8-sig") as csvfile: 
                 writer = csv.writer(csvfile)
                 #先写入 columns_name
-                writer.writerow(["爱好", "小众程度", "入坑时间", "入坑时间", "总花销", "领域内程度等级", "领域内程度描述", "每日时长", "金钱投入门槛", "时间投入门槛", "社会认知程度"])
+                writer.writerow(["爱好", "小众程度", "入坑时间", "总花销", "领域内程度等级", "领域内程度描述", "每日时长", "金钱投入门槛", "时间投入门槛", "社会认知程度描述", "社会认知程度等级"])
                 #写入多行用 writerows
                 writer.writerows(data)
                 break
